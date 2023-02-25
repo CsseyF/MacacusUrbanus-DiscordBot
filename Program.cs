@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using MacacusUrbanusBot.Entities.Configuration;
+using MacacusUrbanusBot.Service;
 
 namespace MyFirstBot
 {

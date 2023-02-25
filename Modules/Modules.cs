@@ -7,6 +7,7 @@ using Discord.Commands;
 using System;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
+using MacacusUrbanusBot.Service;
 
 namespace MacacusUrbanusBot.Modules
 {
@@ -16,9 +17,17 @@ namespace MacacusUrbanusBot.Modules
         [Command("monkey-help")]
         public async Task MonkeyHelp()
         {
-            await ReplyAsync("/monkey-help: Lista os comandos disponíveis" +
-                "\n.\n/roger quote: Faz uma citação sábia" +
-                "\n.\n/time: Show date and time");
+            await ReplyAsync("--monkey-help: Lista os comandos disponíveis" +
+                "\n.\n--roger quote: Faz uma citação sábia" +
+                "\n.\n--time: Show date and time");
+        }
+
+        [Command("roger quote")]
+        public async Task RogerQuote()
+        {
+            var rogerQuotesService = new RogerQuotesService();
+            await ReplyAsync($"_{rogerQuotesService.GetRandomQuote()}_");
+            
         }
 
         [Command("time")]
